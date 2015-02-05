@@ -9,5 +9,7 @@ The balls are analog inputs and the boxes are digital inputs. As the analog valu
 
 ###IA2_arduino.ino
 This code is a simple sensor reading code. The format of serial output from the arduino is 
+
 *analog0,analog1,analog2,analog3,digital0,digital1*
+
 where analogX is analog input range from 0 to 1024 and digitalX is digital output having either 0 or 1.
