@@ -2,7 +2,7 @@
 ## Individual Assignment 2
 
 ###IA2_graph.pde
-A processing file to show graph of analog/digital inputs. The 6 graphs including A0~3, D0~1 labels shows the raw inputs. The cell beside the D1 is filter cell. Filter cell shows the filtered data. If a user drag and drop a cell on the filter cell, it shows the filtered data. The right bottom cell shows multiple data together if a user drags and drops multiple cells into it, it show data all together. The serial port receives data with format described in IA2_arduino.ino.
+A processing file to show graph of analog/digital inputs. The 6 graphs including A1~4, D1~2 labels shows the raw inputs. The cell beside the D1 is filter cell. Filter cell shows the filtered data. If a user drag and drop a cell on the filter cell, it shows the filtered data. The right bottom cell shows multiple data together if a user drags and drops multiple cells into it, it show data all together. The serial port receives data with format described in IA2_arduino.ino.
 ![alt tag](http://cmsc838f-s15.wikispaces.com/file/view/a2_graph.png/539795236/347x218/a2_graph.png)
 
 ###IA2_abstract.pde
