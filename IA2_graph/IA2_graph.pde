@@ -70,8 +70,8 @@ int filterSigIndex = 0;
 Serial myPort;        // The serial port
 
 void setup () {
-  size(displayWidth, displayHeight);
-  //size(800, 500);
+  //size(displayWidth, displayHeight);
+  size(800, 500);
   frame.setResizable(true);
   font = createFont("Arial", 16, true);
 
@@ -119,6 +119,7 @@ void serialEvent (Serial myPort) {
   if (inString != null) {
     // trim off any whitespace:
     inString = trim(inString);
+    println(inString);
 
     String[] words = split(inString, ',');
     if (words.length <6) return;

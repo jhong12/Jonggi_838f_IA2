@@ -1,33 +1,31 @@
-int buttonPin_d = 2;
-int buttonPin2_d = 3;
-int photoPin_a = 0;
-int potPin_a = 1;
-int presPin_a = 2;
 
 void setup(){
-  pinMode(buttonPin_d, INPUT);
-  pinMode(buttonPin2_d, INPUT);
+  pinMode(0, INPUT);
+  pinMode(1, INPUT);
   
   Serial.begin(9600);
 }
 
 void loop(){
-  int photoState = analogRead(photoPin_a);
-  int potState = analogRead(potPin_a);
-  int presState = analogRead(presPin_a);
-  int buttonState = digitalRead(buttonPin_d);
-  int buttonState2 = digitalRead(buttonPin2_d);
+  int a0 = analogRead(0);
+  int a1 = analogRead(1);
+  int a2 = analogRead(2);
+  int a3 = analogRead(3);
+  int d0 = digitalRead(0);
+  int d1 = digitalRead(1);
   
   
-  Serial.print(photoState);
+  Serial.print(a0);
   Serial.print(",");
-  Serial.print(potState);
+  Serial.print(a1);
   Serial.print(",");
-  Serial.print(presState);
+  Serial.print(a2);
   Serial.print(",");
-  Serial.print(buttonState);
+  Serial.print(a3);
   Serial.print(",");
-  Serial.print(buttonState2);                                                                         
+  Serial.print(d0);
+  Serial.print(",");
+  Serial.print(d1);                                                                         
   
   Serial.println();
   //delay(10);
