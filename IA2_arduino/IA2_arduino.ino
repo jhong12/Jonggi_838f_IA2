@@ -1,9 +1,6 @@
 
 void setup(){
-  pinMode(0, INPUT);
-  pinMode(1, INPUT);
-  
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop(){
@@ -11,8 +8,8 @@ void loop(){
   int a1 = analogRead(1);
   int a2 = analogRead(2);
   int a3 = analogRead(3);
-  int d0 = digitalRead(0);
-  int d1 = digitalRead(1);
+  int d0 = analogRead(4);
+  int d1 = analogRead(5);
   
   
   Serial.print(a0);
@@ -24,8 +21,8 @@ void loop(){
   Serial.print(a3);
   Serial.print(",");
   Serial.print(d0);
-  Serial.print(",");
-  Serial.print(d1);                                                                         
+  Serial.print(",");                                                                       
+  Serial.print(d1);
   
   Serial.println();
   //delay(10);

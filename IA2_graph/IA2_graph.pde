@@ -77,14 +77,13 @@ void setup () {
 
 
   println(Serial.list());
-  myPort = new Serial(this, Serial.list()[7], 9600);
+  myPort = new Serial(this, Serial.list()[7], 115200);
   myPort.bufferUntil('\n');
   background(20);
 }
 
 
 void draw() {
-
   if (prevWidth!=width || prevHeight!=height) {
     signals = new float[8][width/4];
     sigPointer=0;
@@ -151,16 +150,19 @@ void drawGraph(int index, int topX, int topY) {
     fill(20, 0, 0);
     rect(topX, topY, topX+width/4, topY+height/2);
   }
-
+  
+  float highCount = 0;
   for (int i=0; i<sigIndex[index].length; i++) {
     int cSig = sigIndex[index][i];
     if (cSig==-1) break;
-    if (cSig < 4 || cSig==6) {
+    if (cSig < 6 || cSig==6) {
       stroke(sigColor[cSig][0], sigColor[cSig][1], sigColor[cSig][2], 100);
       for (int j=0; j<signals[cSig].length; j++) {
         int tempPointer = (sigPointer+j+1)%signals[cSig].length;
         int lineHeight = (int)map(signals[cSig][tempPointer], 0, 1024, 0, (int)height/4);
         line(topX + j, topY+height/4-lineHeight, topX + j, topY+height/4+lineHeight);
+        
+        if (signals[cSig][tempPointer] > 256) highCount = highCount + 1;
       }
 
       fill(sigColor[cSig][0], sigColor[cSig][1], sigColor[cSig][2]);
@@ -179,6 +181,7 @@ void drawGraph(int index, int topX, int topY) {
     int showTime = sigPointer-1;
     if (showTime<0) showTime = signals[cSig].length - 1;
     text(gNames[cSig]+"\n"+signals[cSig][showTime], (index%4)*width/4+50*(i+1)-20, (index/4)*height/2 + 30);
+    text(highCount / signals[cSig].length, (index%4)*width/4+50*(i+1)+10, (index/4)*height/2 + 30);
   }
 }
 
